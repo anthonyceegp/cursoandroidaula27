@@ -5,4 +5,7 @@
     <string name="tarefa">Tarefa</string>
     <string name="deletar">Deletar</string>
     <string name="button_description">Button add new ToDo</string>
+    <string name="alert_title">O que você gostaria de anotar?</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="cancelar">Cancelar</string>
 </resources>
