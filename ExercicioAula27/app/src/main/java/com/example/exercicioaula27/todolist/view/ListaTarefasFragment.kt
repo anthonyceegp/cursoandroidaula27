@@ -13,6 +13,10 @@ import com.example.exercicioaula27.todolist.model.Tarefa
 
 class ListaTarefasFragment : Fragment() {
     private lateinit var viewLista: View
+    private val tarefas = arrayListOf(
+        Tarefa("Tarefa 1"),
+        Tarefa("Tarefa 2", true)
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,15 +29,10 @@ class ListaTarefasFragment : Fragment() {
         viewLista = inflater.inflate(R.layout.fragment_lista_tarefas, container, false)
 
         val viewManager = LinearLayoutManager(context)
-        val recyclerView = viewLista.findViewById<RecyclerView>(R.id.rvLista)
-        val viewAdapter = TarefaAdapter(
-            arrayListOf(
-                Tarefa("Tarefa 1"),
-                Tarefa("Tarefa 2", true)
-            )
-        )
+        val recycler = viewLista.findViewById<RecyclerView>(R.id.rvLista)
+        val viewAdapter = TarefaAdapter(tarefas)
 
-        recyclerView.apply {
+        recycler.apply {
             setHasFixedSize(true)
 
             layoutManager = viewManager
