@@ -13,11 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exercicioaula27.R
 import com.example.exercicioaula27.todolist.model.Tarefa
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.android.synthetic.main.activity_main.view.*
-import kotlinx.android.synthetic.main.fragment_lista_tarefas.*
-import kotlinx.android.synthetic.main.fragment_lista_tarefas.view.*
 
 class ListaTarefasFragment(private val mainContext: Context) : Fragment() {
     private lateinit var viewLista: View
@@ -53,6 +49,14 @@ class ListaTarefasFragment(private val mainContext: Context) : Fragment() {
             val alertDialog = MaterialAlertDialogBuilder(mainContext)
             val layout = layoutInflater.inflate(R.layout.alert_dialog_new_todo, null)
 
+            val btnOk = layout.findViewById<Button>(R.id.btnAddAlert)
+            val btnCancel = layout.findViewById<Button>(R.id.btnCancelAlert)
+            btnOk.setOnClickListener {
+                Toast.makeText(mainContext, "add", Toast.LENGTH_LONG).show()
+            }
+            btnCancel.setOnClickListener {
+                Toast.makeText(mainContext, "cancel", Toast.LENGTH_LONG).show()
+            }
             alertDialog.apply {
                 setView(layout)
                 show()
