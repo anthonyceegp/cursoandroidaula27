@@ -39,6 +39,7 @@ class ListaTarefasFragment(private val mainContext: Context) : Fragment() {
         val viewManager = LinearLayoutManager(context)
         val recycler = viewLista.findViewById<RecyclerView>(R.id.rvLista)
         val viewAdapter = TarefaAdapter(tarefas)
+        val btnAddNew = viewLista.findViewById<Button>(R.id.btnAddNewTodo)
 
         recycler.apply {
             setHasFixedSize(true)
@@ -46,6 +47,16 @@ class ListaTarefasFragment(private val mainContext: Context) : Fragment() {
             layoutManager = viewManager
             adapter = viewAdapter
             addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        }
+
+        btnAddNew.setOnClickListener {
+            val alertDialog = MaterialAlertDialogBuilder(mainContext)
+            val layout = layoutInflater.inflate(R.layout.alert_dialog_new_todo, null)
+
+            alertDialog.apply {
+                setView(layout)
+                show()
+            }
         }
 
         return viewLista
