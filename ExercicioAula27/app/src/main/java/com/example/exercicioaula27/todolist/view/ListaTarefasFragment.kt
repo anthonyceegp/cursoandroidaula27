@@ -1,17 +1,25 @@
 package com.example.exercicioaula27.todolist.view
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exercicioaula27.R
 import com.example.exercicioaula27.todolist.model.Tarefa
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.android.synthetic.main.activity_main.view.*
+import kotlinx.android.synthetic.main.fragment_lista_tarefas.*
+import kotlinx.android.synthetic.main.fragment_lista_tarefas.view.*
 
-class ListaTarefasFragment : Fragment() {
+class ListaTarefasFragment(private val mainContext: Context) : Fragment() {
     private lateinit var viewLista: View
     private val tarefas = arrayListOf(
         Tarefa("Tarefa 1"),
@@ -44,6 +52,6 @@ class ListaTarefasFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = ListaTarefasFragment()
+//        fun newInstance() = ListaTarefasFragment()
     }
 }

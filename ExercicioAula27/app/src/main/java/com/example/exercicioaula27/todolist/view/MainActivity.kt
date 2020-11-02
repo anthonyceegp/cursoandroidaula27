@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.container, ListaTarefasFragment())
+            .replace(R.id.container, ListaTarefasFragment(this))
             .commit()
     }
 }
