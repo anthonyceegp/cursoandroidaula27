@@ -9,10 +9,11 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exercicioaula27.R
-import com.example.exercicioaula27.todolist.model.Todo
+import com.example.exercicioaula27.todolist.model.Tarefa
 
 class ListaTarefasFragment : Fragment() {
-    private lateinit var viewLista:View
+    private lateinit var viewLista: View
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -23,25 +24,27 @@ class ListaTarefasFragment : Fragment() {
     ): View? {
         viewLista = inflater.inflate(R.layout.fragment_lista_tarefas, container, false)
 
-        val viewManager= LinearLayoutManager(context)
-        val recyclerView =viewLista.findViewById<RecyclerView>(R.id.rvLista)
-        val viewAdapter = TarefaAdapter(arrayListOf(Todo("tarefa1",false), Todo("tarefa1",false)))
+        val viewManager = LinearLayoutManager(context)
+        val recyclerView = viewLista.findViewById<RecyclerView>(R.id.rvLista)
+        val viewAdapter = TarefaAdapter(
+            arrayListOf(
+                Tarefa("Tarefa 1"),
+                Tarefa("Tarefa 2", true)
+            )
+        )
 
         recyclerView.apply {
-            setHasFixedSize(true)//dizer que os elementos não são dinamicos
+            setHasFixedSize(true)
 
             layoutManager = viewManager
-            adapter=viewAdapter
-            addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL))
+            adapter = viewAdapter
+            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         }
-
-
 
         return viewLista
     }
 
     companion object {
-        fun newInstance() =
-            ListaTarefasFragment()
+        fun newInstance() = ListaTarefasFragment()
     }
 }
